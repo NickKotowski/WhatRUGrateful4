@@ -1,0 +1,28 @@
+navigation state
+  - nagigateTo();
+  - var currentPage;
+content state
+- content[{
+  string: "", hashtags: ""
+}];
+- addNewItem();
+  --> input entire string into the string, but only the hashtags into the individual hashtags
+
+
+components:
+- general background component:
+ --> function in it will determine based on navigation state what to render (switch statement);
+ --> render either component "EnterItemScreen" or "DisplayItemsScreen"
+   --> EnterItemScreen --> fixed height 100%
+    --> static text "What are you thankfurl for today"
+    --> Input field
+    --> Enter Button
+    - navigate to  Overview screen (fixed at the bottom)
+  "DisplayItemsScreen" scrollview (leave space for button on the bottom)
+    --> static text top
+    --> fx to filter through array and sort according to hashtags
+    --> creates an array like this: [
+    {hashtag: "health", strings: ["I am alive", "My sister is alive"]}
+    --> title bubble has the length of strings.array and #.array[i].hashtag and then a loop of all strings
+    ]
+    --> navigate to Enter screen (fixed at bottom)
