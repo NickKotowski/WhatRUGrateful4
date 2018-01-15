@@ -1,6 +1,6 @@
-navigation state
-  - nagigateTo();
-  - var currentPage;
+x navigation state
+  x nagigateTo();
+  x var currentPage;
 content state
 - content[{
   string: "", hashtags: ""

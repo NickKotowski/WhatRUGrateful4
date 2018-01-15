@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 
-import * as Actions from './actionTypes.js';
-import Main from './index.js';
+import MainContainer from './index.js';
 
 const mapStateToProps = (state) => ({
-     count: state.Reducer.count
+     currentPage: state.Reducer.currentPage
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    increment: () => dispatch({type: Actions.COUNTER_INCREMENT}),
-    decrement: () => dispatch({type: Actions.COUNTER_DECREMENT}),
+    navigateTo: (screen) => dispatch({type: "navigateTo", payload: screen}),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

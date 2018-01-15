@@ -1,32 +1,79 @@
 import React, { PureComponent } from 'react';
-import { View, Button, Text, StyleSheet } from 'react-native';
-import { styles } from './styles.js';
+import { View,
+         Button,
+         Text,
+         StyleSheet,
+         Image,
+         TouchableWithoutFeedback,
+         Dimensions } from 'react-native';
+import { styles } from '../styles.js';
+import EnterItemScreen from '../enter';
+
+const { height, width } = Dimensions.get('window');
 
 export default class Main extends PureComponent {
-
   constructor(props) {
     super(props)
   }
 
-  componentWillUpdate() {
-    console.log("Normal Counter update");
-      console.log(this.props);
+  getScreen() {
+    switch (this.props.currentPage) {
+      case 'enter':
+          return(
+            <EnterItemScreen/>
+          )
+        break;
+      case 'overview':
+        break;
+      default:
+
+    }
+  }
+
+  getButtonName() {
+    switch (this.props.currentPage) {
+      case 'enter':
+        return "Overview"
+        break;
+      case 'overview':
+        return "Input"
+        break;
+      default:
+        return "Overview"
+    }
+  }
+
+  navigateTo() {
+    switch (this.props.currentPage) {
+      case 'enter':
+        this.props.navigateTo('overview');
+        break;
+      case 'overview':
+        this.props.navigateTo('enter');
+        break;
+      default:
+        this.props.navigateTo('overview');
+    }
+
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Button
-          onPress={this.props.increment}
-          title="Increase Count"
-          color="#841584"
-          accessibilityLabel="Increase Count"/>
-        <Text>{this.props.count}</Text>
-        <Button
-          onPress={this.props.decrement}
-          title="Decrease Count"
-          color="#841584"
-          accessibilityLabel="Decrease Count"/>
+        <Image
+          source={require('../images/background.jpg')}
+          style={[{height: height, width: width}, styles.backgroundImage]}/>
+        <View style={styles.wrapper}>
+          <View style={styles.main}>
+            {this.getScreen()}
+          </View>
+          <TouchableWithoutFeedback
+            onPress={this.navigateTo.bind(this)}>
+            <View style={styles.footer}>
+              <Text style={styles.text}>{this.getButtonName()}</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
       </View>
     );
   }

@@ -1,14 +1,8 @@
-import * as Actions from './actionTypes.js';
-
-const Reducer = (state = {count: 0}, action) => {
+const Reducer = (state = {currentPage: "enter"}, action) => {
     switch (action.type) {
-        case Actions.COUNTER_INCREMENT:
+        case "navigateTo":
             return Object.assign({}, state, {
-                count: state.count + 1
-            });
-        case Actions.COUNTER_DECREMENT:
-            return Object.assign({}, state, {
-               count: state.count - 1
+                currentPage: action.payload
             });
         default:
             return state;
