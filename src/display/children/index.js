@@ -7,10 +7,11 @@ import { styles } from '../../styles.js';
 export const HashtagItem = ({object}) => {
 
   getChildren = (object) => {
-    return object.strings.map( (text) => {
+    return object.strings.map( (text, id) => {
       return(
         <HashtagText
-          text={text}/>
+          text={text}
+          key={id}/>
       )
     })
   }

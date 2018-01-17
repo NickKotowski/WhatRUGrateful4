@@ -23,7 +23,7 @@ class DisplayItemsScreen extends PureComponent {
         }
         return false
     }
-    
+
     let hashtagsArray = []
     //loop over content array
     let content = this.props.content;
@@ -44,10 +44,11 @@ class DisplayItemsScreen extends PureComponent {
       }
     }
     //map the array - HashtagItem then maps the individual strings (see children/index.js)
-    return hashtagsArray.map( (object)  => {
+    return hashtagsArray.map( (object, id)  => {
       return (
         <HashtagItem
-          object={object} />
+          object={object}
+          key={id} />
       )}
     )
   }
