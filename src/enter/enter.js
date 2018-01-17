@@ -11,7 +11,7 @@ export default class EnterItemScreen extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      textInput: 'example'
+      textInput: ''
     };
   }
 

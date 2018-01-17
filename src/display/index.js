@@ -20,34 +20,36 @@ class DisplayItemsScreen extends PureComponent {
           if (array[i]["hashtag"] === value) {
               return i
           }
-      }
-      return false;
+        }
+        return false
     }
-
+    
     let hashtagsArray = []
     //loop over content array
     let content = this.props.content;
     for (let i=0; i < content.length; i++) {
+      //analyse every object in the content array
       for (let j=0; j < content[i].hashtags.length; j++) {
+        //get each hashtag of every "entry" (remember: user can enter multiple hashtags per string)
         let hashtag = content[i].hashtags[j];
+        //check if hashtag is already in the temporary data array hashtagsArray
         let positionOfHashtag = findObjectByKey(hashtagsArray, hashtag);
-        if (positionOfHashtag) {
+        //if it is then positionOfHashtag will hold the position as an integer
+        if (Number.isInteger(positionOfHashtag)) {
           hashtagsArray[positionOfHashtag].strings.push(content[i].string);
+        //if undefined (array is empty) or false (hashtag not already there), then we simply add an object with the hashtag and the one string
         } else {
           hashtagsArray.push({hashtag: hashtag, strings: [content[i].string]})
         }
       }
     }
-
+    //map the array - HashtagItem then maps the individual strings (see children/index.js)
     return hashtagsArray.map( (object)  => {
       return (
         <HashtagItem
           object={object} />
       )}
     )
-
-    //first create an array with objects just consisting of all
-    //create an array [{hashtag: '#barcelona', strings: ["bla", "bla", "bla"]}, {hashtag: '#health', strings: ["me", "you"]}]
   }
 
   render() {
