@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { View,
          Text,
-         TextInput,
-         TouchableWithoutFeedback
+         TextInput
           } from 'react-native';
 import { styles } from '../styles.js';
+
+import { Button } from './children/Button.js';
 
 export default class EnterItemScreen extends PureComponent {
   constructor(props) {
@@ -36,23 +37,4 @@ export default class EnterItemScreen extends PureComponent {
       </View>
     );
   }
-}
-
-
-const Button = ({onPress, text, erase}) => {
-
-  onClick = () => {
-    onPress(text);
-    erase();
-  }
-
-  return(
-    <TouchableWithoutFeedback
-      style={styles.text}
-      onPress={this.onClick}>
-      <View style={[styles.textBackground, {backgroundColor: 'rgba(8,33,60, 0.62)'}]}>
-        <Text style={styles.text}>Enter</Text>
-      </View>
-    </TouchableWithoutFeedback>
-  )
 }
