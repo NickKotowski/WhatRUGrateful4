@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Provider } from 'react-redux';
 
 import store from './src/store.js';
-import MainContainer from './src/main/actions.js';
+import MainContainer from './src/main';
 import  {appStyles} from './appStyles';
 
 export default class App extends Component {
