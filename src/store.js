@@ -1,11 +1,11 @@
 import { combineReducers, createStore } from 'redux';
 
 import Reducer from './main/reducer.js';
-import MultiplyReducer from './multiply/reducer.js'
+import MainReducer from './enter/reducer.js'
 
 const AppReducers = combineReducers({
     Reducer,
-    MultiplyReducer
+    MainReducer
 });
 
 const rootReducer = (state, action) => {

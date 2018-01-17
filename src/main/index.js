@@ -7,7 +7,7 @@ import { View,
          TouchableWithoutFeedback,
          Dimensions } from 'react-native';
 import { styles } from '../styles.js';
-import EnterItemScreen from '../enter';
+import EnterItemScreen from '../enter/actions.js';
 
 const { height, width } = Dimensions.get('window');
 
@@ -22,7 +22,6 @@ export default class Main extends PureComponent {
           return(
             <EnterItemScreen/>
           )
-        break;
       case 'overview':
         break;
       default:
@@ -34,10 +33,8 @@ export default class Main extends PureComponent {
     switch (this.props.currentPage) {
       case 'enter':
         return "Overview"
-        break;
       case 'overview':
         return "Input"
-        break;
       default:
         return "Overview"
     }

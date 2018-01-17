@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
   backgroundImage: {
     position: 'absolute',
@@ -24,8 +23,23 @@ export const styles = StyleSheet.create({
   },
   footer: {
     bottom: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonBottom: {
     bottom: 0
   },
+  textBackground: {
+    backgroundColor: 'rgba(100,100,100,0.5)',
+    padding: 15,
+    borderRadius: 50
+  },
+  textInput: {
+    height: 30,
+    width: 200,
+    margin: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
+    padding: 0
+  }
 });

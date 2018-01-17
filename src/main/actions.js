@@ -11,3 +11,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+
+
+//main datei machen, in index zusammenführen 
