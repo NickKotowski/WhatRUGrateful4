@@ -29,7 +29,8 @@ export default class EnterItemScreen extends PureComponent {
           style={[styles.text, styles.textInput]}
           onChangeText={(text) => this.setState({textInput: text})}
           value={this.state.textInput}
-          selectionColor={'white'}/>
+          selectionColor={'white'}
+          underlineColorAndroid='rgba(0,0,0,0)'/>
         <Button
           onPress={this.props.addNewItem}
           text={this.state.textInput}
