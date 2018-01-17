@@ -8,6 +8,7 @@ import { View,
          Dimensions } from 'react-native';
 import { styles } from '../styles.js';
 import EnterItemScreen from '../enter';
+import DisplayItemsScreen from '../display';
 
 const { height, width } = Dimensions.get('window');
 
@@ -19,11 +20,13 @@ export default class Main extends PureComponent {
   getScreen() {
     switch (this.props.currentPage) {
       case 'enter':
-          return(
-            <EnterItemScreen/>
-          )
+        return(
+          <EnterItemScreen/>
+        )
       case 'overview':
-        break;
+        return(
+          <DisplayItemsScreen/>
+        )
       default:
 
     }
